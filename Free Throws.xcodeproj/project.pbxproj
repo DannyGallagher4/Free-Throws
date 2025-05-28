@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		96C39A5B2DE6ADB40017ECDB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 96C39A5A2DE6ADB40017ECDB /* FirebaseAnalytics */; };
+		96C39A692DE6BAC10017ECDB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 96C39A682DE6BAC10017ECDB /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C39A5B2DE6ADB40017ECDB /* FirebaseAnalytics in Frameworks */,
+				96C39A692DE6BAC10017ECDB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,7 @@
 			name = "Free Throws";
 			packageProductDependencies = (
 				96C39A5A2DE6ADB40017ECDB /* FirebaseAnalytics */,
+				96C39A682DE6BAC10017ECDB /* FirebaseFirestore */,
 			);
 			productName = "Free Throws";
 			productReference = 96C39A2D2DDFCD1A0017ECDB /* Free Throws.app */;
@@ -584,6 +587,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96C39A592DE6ADB40017ECDB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		96C39A682DE6BAC10017ECDB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96C39A592DE6ADB40017ECDB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
