@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Free Throws")
+                .font(.title)
+            Spacer()
         }
         .padding()
     }

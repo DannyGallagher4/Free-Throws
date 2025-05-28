@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		96C39A5B2DE6ADB40017ECDB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 96C39A5A2DE6ADB40017ECDB /* FirebaseAnalytics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		96C39A3B2DDFCD1B0017ECDB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C39A5B2DE6ADB40017ECDB /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = "Free Throws";
 			packageProductDependencies = (
+				96C39A5A2DE6ADB40017ECDB /* FirebaseAnalytics */,
 			);
 			productName = "Free Throws";
 			productReference = 96C39A2D2DDFCD1A0017ECDB /* Free Throws.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 96C39A242DDFCD1A0017ECDB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				96C39A592DE6ADB40017ECDB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 96C39A2E2DDFCD1A0017ECDB /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96C39A592DE6ADB40017ECDB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96C39A5A2DE6ADB40017ECDB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96C39A592DE6ADB40017ECDB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96C39A252DDFCD1A0017ECDB /* Project object */;
 }
