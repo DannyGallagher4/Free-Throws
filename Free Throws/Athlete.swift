@@ -12,6 +12,7 @@ import FirebaseFirestore
 
 struct Athlete: Identifiable, Hashable {
     var id: String
+    var idstr: String
     var name: String
     var taken: Int
     var made: Int
@@ -40,7 +41,7 @@ class AthleteViewModel: ObservableObject {
                     let taken = data["taken"] as? Int ?? 0
                     let made = data["made"] as? Int ?? 0
 
-                    return Athlete(id: doc.documentID, name: name, taken: taken, made: made)
+                    return Athlete(id: doc.documentID, idstr: doc.documentID, name: name, taken: taken, made: made)
                 }
             }
         }

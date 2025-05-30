@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingAdd = false
     @State private var showingView = false
+    @State private var showingNew = false
+    @State private var showingRemove = false
     
     var body: some View {
         VStack {
@@ -36,6 +38,26 @@ struct ContentView: View {
                 .onTapGesture {
                     showingView = true
                 }
+            
+            Text("New Athlete")
+                .foregroundColor(.blue)
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 2)
+                )
+                .onTapGesture {
+                    showingNew = true
+                }
+            
+            Text("Remove Athlete")
+                .foregroundColor(.blue)
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 2)
+                )
+                .onTapGesture {
+                    showingRemove = true
+                }
            
             Spacer()
         }
@@ -45,6 +67,12 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingView) {
             ViewDataView()
+        }
+        .sheet(isPresented: $showingNew) {
+            AddPlayerView()
+        }
+        .sheet(isPresented: $showingRemove) {
+            RemoveAthleteView()
         }
     }
 }

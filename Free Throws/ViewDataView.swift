@@ -10,6 +10,8 @@ import SwiftUI
 struct ViewDataView: View {
     @StateObject var viewModel = AthleteViewModel()
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         Text("View Data")
             .font(.title)

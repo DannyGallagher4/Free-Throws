@@ -13,9 +13,9 @@ import FirebaseFirestore
 struct AddDataView: View {
     @StateObject var viewModel = AthleteViewModel()
     
-    @State var selectedAthlete: String? = "None"
-    @State var selectedTaken: Int? = 0
-    @State var selectedMade: Int? = 0
+    @State private var selectedAthlete: Athlete? = nil
+    @State var selectedTaken: Int = 0
+    @State var selectedMade: Int = 0
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -23,9 +23,10 @@ struct AddDataView: View {
             .font(.title)
         Form{
             Section(header: Text("Shots")) {
-                Picker("Athlete", selection: $selectedAthlete){
-                    ForEach(viewModel.athletes, id: \.self){ athlete in
-                        Text(athlete.name)
+                Picker("Athlete", selection: $selectedAthlete) {
+                    Text("None").tag(nil as Athlete?)
+                    ForEach(viewModel.athletes, id: \.self) { athlete in
+                        Text(athlete.name).tag(Optional(athlete))
                     }
                 }
                 Picker("Free Throws Made", selection: $selectedMade){
@@ -44,6 +45,7 @@ struct AddDataView: View {
                     submitAthlete()
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
+                .disabled(selectedAthlete == nil)
             }
         }
         .onAppear {
@@ -52,21 +54,25 @@ struct AddDataView: View {
         Spacer()
     }
     func submitAthlete() {
-            // Example Firestore logic
-            let db = Firestore.firestore()
-            db.collection("athletes").addDocument(data: [
-                "name": selectedAthlete!,
-                "made": selectedMade!,
-                "taken": selectedTaken!
-            ]) { error in
-                if let error = error {
-                    print("Error saving athlete: \(error.localizedDescription)")
-                } else {
-                    print("Athlete saved successfully")
-                    dismiss()
-                }
-            }
+        
+        let db = Firestore.firestore()
+        let ref = db.collection("athletes").document(selectedAthlete!.idstr)
+        
+        let newTaken: Int = (selectedAthlete?.taken ?? 0) + selectedTaken
+        let newMade: Int = (selectedAthlete?.made ?? 0) + selectedMade
+        
+        do {
+            try ref.updateData([
+                "taken": newTaken,
+                "made": newMade
+            ])
+            print("Document successfully updated")
+        } catch {
+            print("Error updating document: \(error)")
         }
+        
+        dismiss()
+    }
 }
 
 #Preview {
